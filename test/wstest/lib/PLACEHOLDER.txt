@@ -1,0 +1,1 @@
+THIS FOLDER IS MUST BE CONTAIN websocket.cpp.o FOR DEPEDENCIES, YOU CAN GET IT FROM BUILDING IT FROM THE REPO ROOT/build/CMakeFiles/libws.dir/websocket.cpp.o
