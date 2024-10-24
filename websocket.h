@@ -2,15 +2,11 @@
 #define WEBSOCKET_H
 #define ASIO_STANDALONE
 
-#include <websocketpp/server.hpp>
+#include <functional>
 #include <websocketpp/config/asio_no_tls.hpp>
-#include <nlohmann/json.hpp>
-#include <chrono>
-#include <iostream>
+#include <websocketpp/server.hpp>
 
-using websocketpp::connection_hdl;
-
-void on_message(websocketpp::server<websocketpp::config::asio>& server, connection_hdl hdl, websocketpp::server<websocketpp::config::asio>::message_ptr msg);
-void start_server(int port);
+void start_server(int port, std::function<void(websocketpp::connection_hdl)> http_handler,
+                  std::function<void(websocketpp::connection_hdl, websocketpp::server<websocketpp::config::asio>::message_ptr)> message_handler);
 
 #endif // WEBSOCKET_H
